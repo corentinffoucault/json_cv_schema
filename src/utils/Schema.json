@@ -1,0 +1,396 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/example.json",
+    "additionalProperties": true,
+    "definitions": {
+        "iso8601": {
+            "type": "string",
+            "description": "Similar to the standard date type, but each section after the year is optional. e.g. 2014-06-29 or 2023-04",
+            "pattern": "^([0-9]{4}-[0-1][0-9]-[0-3][0-9]|[0-9]{4}-[0-1][0-9]|[0-9]{4})$"
+        }
+    },
+    "properties": {
+        "labels": {
+            "type": "object",
+            "properties": {
+                "works": {
+                    "type": "string",
+                    "description": "The label for the work part"
+                },
+                "planguages": {
+                    "type": "string",
+                    "description": "The label for the computer language part"
+                },
+                "team": {
+                    "type": "string",
+                    "description": "The label for the team part"
+                },
+                "tools": {
+                    "type": "string",
+                    "description": "The label for the tools part"
+                },
+                "environment": {
+                    "type": "string",
+                    "description": "The label for the environment part"
+                },
+                "methods": {
+                    "type": "string",
+                    "description": "The label for the methods part"
+                },
+                "worksSkill": {
+                    "type": "string",
+                    "description": "The label for the worksSkill part"
+                },
+                "diploma": {
+                    "type": "string",
+                    "description": "The label for the diploma part"
+                },
+                "language": {
+                    "type": "string",
+                    "description": "The label for the language part"
+                },
+                "interests": {
+                    "type": "string",
+                    "description": "The label for the interests part"
+                }
+            },
+            "required": [
+                "works",
+                "planguages",
+                "team",
+                "tools",
+                "environment",
+                "methods",
+                "worksSkill",
+                "diploma",
+                "language",
+                "interests"
+            ]
+        },
+        "basics": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "your name"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "e.g. Web Developer"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "e.g. thomas@gmail.com",
+                    "format": "email"
+                },
+                "phone": {
+                    "type": "string",
+                    "description": "Phone numbers are stored as strings so use any format you like, e.g. 712-117-2923"
+                },
+                "summary": {
+                    "type": "string",
+                    "description": "Write a short 2-3 sentence biography about yourself"
+                },
+                "birth": {
+                    "type": "string",
+                    "description": "Standard date type",
+                    "pattern": "^([0-9]{4}-[0-1][0-9]-[0-3][0-9])$"
+                },
+                "location": {
+                    "type": "object",
+                    "properties": {
+                        "address": {
+                            "type": "string",
+                            "description": "To add multiple address lines, use \n. For example, 1234 Glücklichkeit Straße\nHinterhaus 5. Etage li."
+                        },
+                        "postalCode": {
+                            "type": "string"
+                        },
+                        "city": {
+                            "type": "string"
+                        },
+                        "countryCode": {
+                            "type": "string",
+                            "description": "code as per ISO-3166-1 ALPHA-2, e.g. US, AU, IN"
+                        },
+                        "region": {
+                            "type": "string",
+                            "description": "The general region where you live. Can be a US state, or a province, for instance."
+                        }
+                    },
+                    "required": [
+                        "city",
+                        "countryCode",
+                        "url"
+                    ]
+                },
+                "profiles": {
+                    "type": "array",
+                    "description": "Specify any number of social networks that you participate in",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "network": {
+                                "type": "string",
+                                "description": "e.g. Facebook or Twitter"
+                            },
+                            "username": {
+                                "type": "string",
+                                "description": "e.g. neutralthoughts"
+                            },
+                            "url": {
+                                "type": "string",
+                                "description": "e.g. http://twitter.example.com/neutralthoughts",
+                                "format": "uri"
+                            }
+                        }
+                    },
+                    "required": [
+                        "network",
+                        "username",
+                        "url"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "label",
+                "email",
+                "phone",
+                "location"
+            ]
+        },
+        "work": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "e.g. Facebook"
+                    },
+                    "location": {
+                        "type": "string",
+                        "description": "e.g. Menlo Park, CA"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "e.g. Social Media Company"
+                    },
+                    "position": {
+                        "type": "string",
+                        "description": "e.g. Software Engineer"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "e.g. http://facebook.example.com",
+                        "format": "uri"
+                    },
+                    "startDate": {
+                        "$ref": "#/definitions/iso8601"
+                    },
+                    "endDate": {
+                        "$ref": "#/definitions/iso8601"
+                    },
+                    "summary": {
+                        "type": "string",
+                        "description": "Give an overview of your responsibilities at the company"
+                    },
+                    "team": {
+                        "type": "object",
+                        "properties": {
+                            "back": {
+                                "type": "number",
+                                "description": "Number of back dev in the team"
+                            },
+                            "front": {
+                                "type": "number",
+                                "description": "Number of front dev in the team"
+                            },
+                            "fullStack": {
+                                "type": "number",
+                                "description": "Number of fullstack dev in the team"
+                            },
+                            "description": {
+                                "type": "string",
+                                "description": "e.g scrum"
+                            }
+                        },
+                        "required": [
+                            "back",
+                            "front",
+                            "fullStack",
+                            "description"
+                        ]
+                    },
+                    "highlights": {
+                        "type": "array",
+                        "description": "Specify multiple accomplishments",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "subject": {
+                                    "type": "string",
+                                    "description": "e.g. Increased profits by 20% from 2011-2012 through viral advertising"
+                                },
+                                "cat": {
+                                    "type": "string",
+                                    "description": "e.g subject | studies"
+                                },
+                                "alternative": {
+                                    "type": "string",
+                                    "description": "alternative description for a simplify resume"
+                                },
+                                "detail": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "description": "Most important part of the accomplishement"
+                                }
+                            },
+                            "required": [
+                                "subject"
+                            ]
+                        }
+                    },
+                    "planguages": {
+                        "type": "array",
+                        "description": "specify multiple computer languages",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "env": {
+                        "type": "array",
+                        "description": "specify working env",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "tools": {
+                        "type": "array",
+                        "description": "specify multiple tools",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "method": {
+                        "type": "array",
+                        "description": "specify multiple method",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "name",
+                    "position"
+                ]
+            }
+        },
+        "education": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "institution": {
+                        "type": "string",
+                        "description": "e.g. Massachusetts Institute of Technology"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "e.g. http://facebook.example.com",
+                        "format": "uri"
+                    },
+                    "area": {
+                        "type": "string",
+                        "description": "e.g. Arts"
+                    },
+                    "endDate": {
+                        "$ref": "#/definitions/iso8601"
+                    }
+                },
+                "required": [
+                    "institution",
+                    "url",
+                    "area",
+                    "endDate"
+                ]
+            }
+        },
+        "skills": {
+            "type": "array",
+            "description": "List out your professional skill-set",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "e.g. Web Development"
+                    },
+                    "keywords": {
+                        "type": "array",
+                        "description": "List some keywords pertaining to this skill",
+                        "items": {
+                            "type": "string",
+                            "description": "e.g. HTML"
+                        }
+                    }
+                },
+                "required": [
+                    "name",
+                    "keywords"
+                ]
+            }
+        },
+        "languages": {
+            "type": "array",
+            "description": "List any other languages you speak",
+            "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                    "language": {
+                        "type": "string",
+                        "description": "e.g. English, Spanish"
+                    },
+                    "fluency": {
+                        "type": "string",
+                        "description": "e.g. Fluent, Beginner"
+                    }
+                },
+                "required": [
+                    "language",
+                    "fluency"
+                ]
+            }
+        },
+        "interests": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "e.g. Philosophy"
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            }
+        }
+    },
+    "required": [
+        "labels",
+        "basics",
+        "work",
+        "education",
+        "skills",
+        "languages",
+        "interests"
+    ],
+    "title": "Resume Schema",
+    "type": "object"
+}

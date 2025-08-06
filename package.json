@@ -1,0 +1,23 @@
+{
+    "name": "json_cv_schema",
+    "version": "1.0.0",
+    "description": "a typescript schema for cv",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/corentinffoucault/json_cv_schema.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "build": "npx tsc",
+        "build-tests": "tsc -p tsconfig.test.json",
+        "pretest": "npm run build && npm run build-tests",
+        "test": "find dist-tests -type f -name \"*Spec.js\" | xargs node --test"
+    },
+    "homepage": "https://github.com/corentinffoucault/json_cv_schema#readme",
+    "dependencies": {
+        "zod": "^4.1.1"
+    }
+}

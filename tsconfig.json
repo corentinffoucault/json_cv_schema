@@ -1,0 +1,36 @@
+{
+    "ts-node": {
+        // Do not forget to `npm i -D tsconfig-paths`
+        "require": [
+            "tsconfig-paths/register"
+        ]
+    },
+    "compilerOptions": {
+        "composite": true,
+        "declarationMap": true,
+        "target": "es2023",
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "outDir": "./dist",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "isolatedModules": true,
+        "noEmit": false,
+        "allowImportingTsExtensions": false,
+        "lib": [
+            "esnext"
+        ],
+        "types": [
+            "node"
+        ],
+        "baseUrl": "./",
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "include": [
+        "src/**/*.ts"
+    ]
+}
