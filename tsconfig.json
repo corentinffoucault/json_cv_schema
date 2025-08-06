@@ -6,6 +6,8 @@
         ]
     },
     "compilerOptions": {
+        "composite": true,
+        "declarationMap": true,
         "target": "es2023",
         "module": "esnext",
         "moduleResolution": "bundler",
