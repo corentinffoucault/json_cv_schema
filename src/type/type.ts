@@ -82,14 +82,10 @@ export type volunteers = {
 };
 
 export type Education = {
-    institution?: string;
-    url?: string;
-    area?: string;
-    studyType?: string;
-    startDate?: Iso8601;
-    endDate?: Iso8601;
-    score?: string;
-    courses?: string[];
+    institution: string;
+    url: string;
+    area: string;
+    endDate: Iso8601;
 };
 
 export type Meta = {
