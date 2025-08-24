@@ -53,10 +53,10 @@ export type Highlight = {
 };
 
 export type Work = {
-    name?: string;
+    name: string;
     location?: string;
     description?: string;
-    position?: string;
+    position: string;
     url?: string;
     startDate?: Iso8601;
     endDate?: Iso8601;
@@ -77,9 +77,8 @@ export type Education = {
 };
 
 export type Skill = {
-    name?: string;
-    level?: string;
-    keywords?: string[];
+    name: string;
+    keywords: string[];
 };
 
 export type Language = {
