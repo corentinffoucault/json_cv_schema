@@ -1,4 +1,4 @@
-import type { ResumeSchema } from './type';
+import type { ResumeSchema } from './Type';
 
 export interface IResumeConvertor {
     generateResume(resumeJson: ResumeSchema): Promise<string>;
