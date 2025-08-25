@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 // Aliases
-const Iso8601 = z.string().regex(/^\d{2}-\d{2}-\d{4}$/);
+const Iso8601 = z.string().regex(/^(\d{2}\/\d{2}\/\d{4}|\d{2}\/\d{4}|\d{4})$/);
 
 // Sub-schemas
 const LabelsSchema = z.object({
