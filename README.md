@@ -3,7 +3,24 @@
 
 This project provides a **JSON schema** for resumes that can be used with the external project CV_generator_from_JSON, and ensures that any JSON passed to it **conforms to the schema**.  
 Validation is performed internally using [Zod](https://github.com/colinhacks/zod) to guarantee the correctness of the data.
+
 ---
+
+## Installation
+
+Requirements:
+- **Node.js** v22 or higher
+- **npm** v11 or higher
+
+```bash
+git clone --recurse-submodules https://github.com/corentinffoucault/json_cv_schema.git
+cd json_cv_schema
+npm ci
+npm run build
+``` 
+
+---
+
 ## Legend
 
 - :material-checkbox-marked:{ style="color:green" } **Required field**  
@@ -14,6 +31,8 @@ Validation is performed internally using [Zod](https://github.com/colinhacks/zod
 
 - :material-alert-circle:{ style="color:orange" } **Warning / Special rule**  
   Indicates constraints (e.g. date format, unique values, specific pattern).
+
+---
 
 ## Purpose
 
