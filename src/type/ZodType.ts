@@ -13,6 +13,7 @@ const LabelsSchema = z.object({
     diploma: z.string(),
     language: z.string(),
     interests: z.string(),
+    internships: z.string(),
 });
 
 const LocationSchema = z.object({
@@ -38,6 +39,14 @@ const BasicsSchema = z.object({
     location: LocationSchema,
     profiles: z.array(ProfilesSchema).optional(),
     summary: z.string().optional(),
+});
+
+const Internship = z.object({
+    name: z.string(),
+    url: z.string(),
+    startDate: z.string(),
+    endDate: z.string(),
+    subject: z.string(),
 });
 
 const TeamSchema = z.object({
@@ -100,6 +109,7 @@ export const ResumeSchemaForZod = z.object({
     skills: z.array(SkillSchema),
     languages: z.array(LanguageSchema),
     interests: z.array(InterestSchema),
+    internships: z.array(Internship).optional()
 });
 
 export type Resume = z.infer<typeof ResumeSchemaForZod>;

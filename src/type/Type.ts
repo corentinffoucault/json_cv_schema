@@ -11,6 +11,15 @@ export type Labels = {
     diploma: string;
     language: string;
     interests: string;
+    internships: string;
+};
+
+export type Internship = {
+    name: string;
+    url: string;
+    startDate: string;
+    endDate: string;
+    subject: string;
 };
 
 export type Location = {
@@ -98,4 +107,5 @@ export type ResumeSchema = {
     skills: Skill[];
     languages: Language[];
     interests: Interest[];
+    internships?: Internship[];
 };
